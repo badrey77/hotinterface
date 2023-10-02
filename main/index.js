@@ -37,4 +37,5 @@ electron_1.app.on('window-all-closed', electron_1.app.quit);
 electron_1.ipcMain.on('message', (event, message) => {
     console.log(message);
     setTimeout(() => event.sender.send('message', 'hi from electron'), 500);
+    event.sender.send('message', ['one', 'two', 'three']);
 });
